@@ -18,11 +18,11 @@ def clean_func_input(arg_count,arg_list,defaults,*args,**kwargs):
         default_name = arg_list[index]
         if default_name in kwargs:
             args.insert(arg_count-1,kwargs[default_name])
-            kwargs.__delitem__(default_name)
+            kwargs.__delitem__(default_name) # Deleting params kwargs from kwargs
         else:
             args.insert(arg_count-1, defaults[default_index])
     
-    return args,kwargs
+    return args,kwargs # funcion args and kwargs in order of declaration
 
 def typeCheck(fn): # Wrap Function
     """
